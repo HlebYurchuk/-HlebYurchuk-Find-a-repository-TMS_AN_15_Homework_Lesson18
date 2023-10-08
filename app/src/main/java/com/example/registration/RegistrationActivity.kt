@@ -27,17 +27,28 @@ class RegistrationActivity : AppCompatActivity() {
 
             } else if (tetEmail.text.toString().isEmpty()) {
 
-
                 tetEmail.error = "email cant be empty"
-
 
             } else if (tetPass.text.toString().isEmpty()) {
                 tetPass.error = "password cant be empty"
+            } else if (tetPass.length() < 6 && tetEmail.length() < 6) {
+                tetPass.error = "password cant be lower then 6"
+                tetEmail.error = "email cant be lower then 6"
+
+            } else if (tetPass.length() < 6) {
+                tetPass.error = "password cant be lower then 6"
+
+            } else if (tetEmail.length() < 6) {
+                tetEmail.error = "email cant be lower then 6"
+
             } else {
 
-                startOnboardingActivity(this,tetEmail.text.toString() + " " + tetPass.text.toString())
+                startOnboardingActivity(
+                    this,
+                    tetEmail.text.toString() + " " + tetPass.text.toString()
+                )
             }
         }
     }
-    }
+}
 
